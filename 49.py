@@ -17,7 +17,8 @@ class Solution:
             if len(strs[1]) != 0:
                 if len(strs[0]) == 0:
                     print ("b")
-                    return [[strs[0]],[strs[1]]]
+                    return [[strs[0]]
+,[strs[1]]]
                 else:
                     print ("a")
                     temp1 = (strs[0])
