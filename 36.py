@@ -14,8 +14,8 @@ class Solution:
     def isValidSudoku(self, board: list[list[str]]) -> bool:
         checkboard = []
 
-        for down in range(0,6,3):
-            for left in range(0,6,3):
+        for down in range(0,9,3):
+            for left in range(0,9,3):
                 for y in range(3):
                     for x in range(3):
                         if board[y+down][x+left] in checkboard and board[y+down][x+left] != ".":
@@ -48,10 +48,20 @@ class Solution:
             
 
         return True
+    
+    def isValidSudokubellcurve(self, board: list[list[str]]) -> bool:
+        compare = []
+        for i in range(9):
+            for j in range(9):
+                element = board[i][j]
+                if element != ".":
+                    compare += [(i, element), (element, j), (i // 3, j // 3, element)] # I think I kind of get it. it goes through the board space by space rather than by 3x3 square by 3x3 square and then uses math to determine which square its in
+        return len(compare) == len(set(compare)) #Then this removes all duplicates, so if there is a duplicate it will return false
+
         
 
 #unsubmitted, I feel like I'm close but I've been working on this for an hour and a half so I think its about time to pack it up and work on something else
 
 if __name__ == '__main__':
-    hold = (Solution.isValidSudoku(None,Sample))
+    hold = (Solution.isValidSudokubellcurve(None,Sample))
     print (hold)
