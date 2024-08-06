@@ -1,4 +1,5 @@
-Sample = 1234567
+Sample = 123
+# one million two hundread thirty four five hundread sixty seven
 d = {0: "Zero",
         1: "One",
         2: "Two",
@@ -41,7 +42,6 @@ class Solution:
         testme = []
         appendme = []
         nums = str(num)
-        reversed(nums)
         for i in nums:
             if pos == 3:
                 testme.append(appendme)
@@ -52,11 +52,12 @@ class Solution:
                 appendme.append(i)
                 pos += 1 
         testme.append(appendme)
+        testme = list(reversed(testme))
         print (testme)
         realans = []
         multifactor = 100
         for i in range(len(testme)):
-            reversed(testme[i])
+            testme[i] = list(reversed(testme[i]))
             if len(testme[i]) == 3:
                 firsttwo = int(f"{testme[i][0]}{testme[i][1]}")
                 answer += f"{d[(int(testme[i][2]))]} "
@@ -82,7 +83,10 @@ class Solution:
                     answer += f"{d[multis[i]]} "
                     realans.insert(0,answer)
         
-        return "".join(realans)
+        temp = "".join(realans)
+        temp = temp[:(len(temp)-1)]
+
+        return temp
 
 
 if __name__ == '__main__':
